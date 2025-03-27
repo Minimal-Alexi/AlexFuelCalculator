@@ -8,34 +8,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="354.0" prefWidth="421.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.metropolia.alexfuelcalculator.FuelController">
+<VBox alignment="CENTER" prefHeight="354.0" prefWidth="421.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.metropolia.alexfuelcalculator.FuelController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <VBox prefHeight="47.0" prefWidth="381.0">
       <children>
-         <Label text="Fuel Input" />
-         <TextField />
+         <Label fx:id="labelFuel" text="Fuel Input" />
+         <TextField fx:id="fuelTextField" />
       </children>
    </VBox>
    <VBox prefHeight="66.0" prefWidth="381.0">
       <children>
-         <Label text="Distance Input" />
-         <TextField />
+         <Label fx:id="labelDistance" text="Distance Input" />
+         <TextField fx:id="distanceTextField" />
       </children>
    </VBox>
-   <Button mnemonicParsing="false" text="Calculate" />
-   <Label prefHeight="40.0" prefWidth="81.0" text="Result">
+   <Button fx:id="buttonCalculate" mnemonicParsing="false" text="Calculate" />
+   <Label fx:id="labelResult" prefHeight="39.0" prefWidth="380.0" text="Result">
       <font>
          <Font size="24.0" />
       </font>
    </Label>
    <HBox alignment="CENTER" prefHeight="59.0" prefWidth="381.0" spacing="20.0">
       <children>
-          <Button onAction="#onHelloButtonClick" text="en" />
-         <Button onAction="#onHelloButtonClick" text="fr" />
-         <Button onAction="#onHelloButtonClick" text="jp" />
-         <Button onAction="#onHelloButtonClick" text="ir" />
+          <Button fx:id="buttonEn" text="en" />
+         <Button fx:id="buttonFr" text="fr" />
+         <Button fx:id="buttonJp" text="jp" />
+         <Button fx:id="buttonIr" text="ir" />
       </children>
    </HBox>
 </VBox>
