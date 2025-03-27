@@ -49,10 +49,10 @@ public class FuelController {
             changeLanguage("fr","FR");
         });
         buttonIr.setOnAction(event -> {
-            changeLanguage("ir","IR");
+            changeLanguage("fa","IR");
         });
         buttonJp.setOnAction(event -> {
-            changeLanguage("jp","JP");
+            changeLanguage("ja","JP");
         });
 
     }
