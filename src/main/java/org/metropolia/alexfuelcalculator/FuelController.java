@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 public class FuelController {
     private ResourceBundle messages;
+    private double result;
     @FXML
     private TextField distanceTextField, fuelTextField;
     @FXML
@@ -27,7 +28,11 @@ public class FuelController {
                 {
                     labelResult.setText(messages.getString("error.Null") );
                 }
-                labelResult.setText(messages.getString("labelResult") + String.format("%.2f", fuel/distance * 100) + "l/100km");
+                else
+                {
+                    result = fuel/distance * 100;
+                    labelResult.setText(messages.getString("labelResult") + String.format("%.2f", result) + "l/100km");
+                }
             }catch (NumberFormatException e)
             {
                 labelResult.setText(messages.getString("error.InvalidFormat"));
@@ -55,6 +60,6 @@ public class FuelController {
         messages = ResourceBundle.getBundle("org.metropolia.alexfuelcalculator.messages", new Locale(language, country));
         labelFuel.setText(messages.getString("labelFuel"));
         labelDistance.setText(messages.getString("labelDistance"));
-        labelResult.setText(messages.getString("labelResult"));
+        labelResult.setText(messages.getString("labelResult") + String.format("%.2f", result) + "l/100km");
     }
 }
