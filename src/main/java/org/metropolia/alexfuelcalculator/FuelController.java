@@ -61,5 +61,6 @@ public class FuelController {
         labelFuel.setText(messages.getString("labelFuel"));
         labelDistance.setText(messages.getString("labelDistance"));
         labelResult.setText(messages.getString("labelResult") + String.format("%.2f", result) + "l/100km");
+        buttonCalculate.setText(messages.getString("buttonCalculate"));
     }
 }
