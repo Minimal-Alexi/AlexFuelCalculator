@@ -3,7 +3,7 @@ package org.metropolia.alexfuelcalculator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class FuelController {
     @FXML
     private Label welcomeText;
 
