@@ -6,35 +6,55 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class FuelController {
-    private Locale locale;
+    private ResourceBundle messages;
     @FXML
     private TextField distanceTextField, fuelTextField;
     @FXML
-    private Button buttonCalculate;
+    private Button buttonCalculate,buttonEn,buttonFr,buttonIr,buttonJp;
     @FXML
-    private Label labelResult;
+    private Label labelResult,labelFuel,labelDistance;
     public void initialize(){
+        changeLanguage("en","US");
         buttonCalculate.setOnAction(event -> {
             try
             {
                 double distance = Double.parseDouble(distanceTextField.getText());
                 double fuel = Double.parseDouble(fuelTextField.getText());
-                if(distance < 0 || fuel < 0)
+                if(distance <= 0 || fuel <= 0)
                 {
-                    labelResult.setText("Result: N/A" );
+                    labelResult.setText(messages.getString("error.Null") );
                 }
-                labelResult.setText("Result: " + String.format("%.2f", fuel/distance * 100) + "l/100km");
+                labelResult.setText(messages.getString("labelResult") + String.format("%.2f", fuel/distance * 100) + "l/100km");
             }catch (NumberFormatException e)
             {
-                labelResult.setText("Result: N/A" );
+                labelResult.setText(messages.getString("error.InvalidFormat"));
             }
             finally {
                 distanceTextField.clear();
                 fuelTextField.clear();
             }
         });
+        buttonEn.setOnAction(event -> {
+            changeLanguage("en","US");
+        });
+        buttonFr.setOnAction(event -> {
+            changeLanguage("fr","FR");
+        });
+        buttonIr.setOnAction(event -> {
+            changeLanguage("ir","IR");
+        });
+        buttonJp.setOnAction(event -> {
+            changeLanguage("jp","JP");
+        });
 
+    }
+    private void changeLanguage(String language,String country){
+        messages = ResourceBundle.getBundle("org.metropolia.alexfuelcalculator.messages", new Locale(language, country));
+        labelFuel.setText(messages.getString("labelFuel"));
+        labelDistance.setText(messages.getString("labelDistance"));
+        labelResult.setText(messages.getString("labelResult"));
     }
 }
