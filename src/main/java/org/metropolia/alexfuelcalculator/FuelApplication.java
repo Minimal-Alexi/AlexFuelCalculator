@@ -12,7 +12,7 @@ public class FuelApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FuelApplication.class.getResource("fuel.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Fuel Alex Pop");
         stage.setScene(scene);
         stage.show();
     }
